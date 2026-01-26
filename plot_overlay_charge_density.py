@@ -38,8 +38,8 @@ z_min_angstrom = z_positions_electrode.min()
 z_max_angstrom = z_positions_electrode.max()
 
 print(f"  ✓ Electrode atoms (grpc): {len(electrode)}")
-print(f"  ✓ Cathode position: {z_min_angstrom:.2f} Å")
-print(f"  ✓ Anode position:   {z_max_angstrom:.2f} Å")
+print(f"  ✓ Anode position: {z_min_angstrom:.2f} Å")
+print(f"  ✓ Cathode position:   {z_max_angstrom:.2f} Å")
 print()
 
 # =============================================================================
@@ -71,9 +71,9 @@ ax.plot(z_4V, q_4V, label='4V Total', color='red', linewidth=1.5, alpha=0.8)
 
 # Electrode position markers
 ax.axvline(x=z_min_angstrom, color='green', linestyle='--', linewidth=2, alpha=0.7, 
-           label=f'Cathode ({z_min_angstrom:.1f} Å)')
+           label=f'Anode ({z_min_angstrom:.1f} Å)')
 ax.axvline(x=z_max_angstrom, color='orange', linestyle='--', linewidth=2, alpha=0.7, 
-           label=f'Anode ({z_max_angstrom:.1f} Å)')
+           label=f'Cathode ({z_max_angstrom:.1f} Å)')
 
 # Axis labels and formatting
 ax.set_xlabel('Z Position (Å)', fontsize=11)
