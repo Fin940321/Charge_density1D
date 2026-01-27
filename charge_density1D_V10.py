@@ -348,8 +348,8 @@ if len(solvent_idx) > 0 and np.any(density_solv != 0):
     ax1.plot(z_centers_angstrom, density_solv, label='Solvent', 
              color='purple', linewidth=1.5, alpha=0.8)
 # Electrode position markers
-ax1.axvline(x=z_min_angstrom, color='green', linestyle='--', linewidth=2, alpha=0.7, label=f'Cathode ({z_min_angstrom:.1f} Å)')
-ax1.axvline(x=z_max_angstrom, color='orange', linestyle='--', linewidth=2, alpha=0.7, label=f'Anode ({z_max_angstrom:.1f} Å)')
+ax1.axvline(x=z_min_angstrom, color='green', linestyle='--', linewidth=2, alpha=0.7, label=f'Anode ({z_min_angstrom:.1f} Å)')
+ax1.axvline(x=z_max_angstrom, color='orange', linestyle='--', linewidth=2, alpha=0.7, label=f'Cathode ({z_max_angstrom:.1f} Å)')
 ax1.set_xlabel('Z Position (Å)', fontsize=11)
 ax1.set_ylabel('Charge Density (C/nm³)', fontsize=11)
 ax1.set_ylim(-15, 25)
@@ -361,8 +361,8 @@ ax1.grid(True, linestyle='--', alpha=0.5)
 ax2.plot(z_centers_angstrom, density_total, label='Total', color='black', linewidth=2)
 ax2.axhline(y=0, color='gray', linestyle=':', alpha=0.5)
 # Electrode position markers
-ax2.axvline(x=z_min_angstrom, color='green', linestyle='--', linewidth=2, alpha=0.7, label=f'Cathode ({z_min_angstrom:.1f} Å)')
-ax2.axvline(x=z_max_angstrom, color='orange', linestyle='--', linewidth=2, alpha=0.7, label=f'Anode ({z_max_angstrom:.1f} Å)')
+ax2.axvline(x=z_min_angstrom, color='green', linestyle='--', linewidth=2, alpha=0.7, label=f'Anode ({z_min_angstrom:.1f} Å)')
+ax2.axvline(x=z_max_angstrom, color='orange', linestyle='--', linewidth=2, alpha=0.7, label=f'Cathode ({z_max_angstrom:.1f} Å)')
 ax2.set_xlabel('Z Position (Å)', fontsize=11)
 ax2.set_ylabel('Charge Density (C/nm³)', fontsize=11)
 ax2.set_ylim(-15, 25)
