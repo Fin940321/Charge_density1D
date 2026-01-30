@@ -63,11 +63,11 @@ print(f"4V data: {len(z_4V)} points, Z range: {z_4V.min():.2f} - {z_4V.max():.2f
 # =============================================================================
 print("Creating overlay plot...")
 
-fig, ax = plt.subplots(figsize=(12, 6), dpi=300)
+fig, ax = plt.subplots(figsize=(12, 6), dpi=600)
 
 # Plot total charge density for both voltages
-ax.plot(z_2V, q_2V, label='2V Total', color='blue', linewidth=1.5, alpha=0.8)
-ax.plot(z_4V, q_4V, label='4V Total', color='red', linewidth=1.5, alpha=0.8)
+ax.plot(z_2V, q_2V, label='2V', color='blue', linewidth=1.5, alpha=0.8)
+ax.plot(z_4V, q_4V, label='4V', color='red', linewidth=1.5, alpha=0.8)
 
 # Electrode position markers
 ax.axvline(x=z_min_angstrom, color='green', linestyle='--', linewidth=2, alpha=0.7, 
@@ -78,7 +78,7 @@ ax.axvline(x=z_max_angstrom, color='orange', linestyle='--', linewidth=2, alpha=
 # Axis labels and formatting
 ax.set_xlabel('Z Position (Å)', fontsize=11)
 ax.set_ylabel('Charge Density (C/nm³)', fontsize=11)
-ax.set_title('Total Charge Density: 2V vs 4V Comparison', fontsize=12, fontweight='bold')
+ax.set_title('Total Charge Density', fontsize=12, fontweight='bold')
 
 # Set y-axis limits (adjusted for 4V larger amplitude)
 ax.set_ylim(-20, 30)
