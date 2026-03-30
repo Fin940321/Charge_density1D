@@ -13,6 +13,7 @@ import MDAnalysis as mda
 # Configuration
 # =============================================================================
 DATA_2V = "2V_charge_density1D/hist_q_total_2V.dat"
+DATA_1V = "1V_charge_density1D/hist_q_total_1V.dat"
 DATA_4V = "4V_charge_density1D/hist_q_total_4V.dat"
 ELECTRODE_PDB = "2V_charge_density1D/2V_start_nodrudes.pdb"  # For electrode detection
 OUTPUT_FILE = "charge_density_overlay_total.png"
@@ -47,14 +48,19 @@ print()
 # =============================================================================
 print("=== Loading Data ===")
 data_2V = np.loadtxt(DATA_2V)
+data_1V = np.loadtxt(DATA_1V)
 data_4V = np.loadtxt(DATA_4V)
 
 z_2V = data_2V[:, 0]  # Z position (Å)
 q_2V = data_2V[:, 1]  # Charge density (C/nm³)
 
+z_1V = data_1V[:, 0]
+q_1V = data_1V[:, 1]
+
 z_4V = data_4V[:, 0]
 q_4V = data_4V[:, 1]
 
+print(f"1V data: {len(z_1V)} points, Z range: {z_1V.min():.2f} - {z_1V.max():.2f} Å")
 print(f"2V data: {len(z_2V)} points, Z range: {z_2V.min():.2f} - {z_2V.max():.2f} Å")
 print(f"4V data: {len(z_4V)} points, Z range: {z_4V.min():.2f} - {z_4V.max():.2f} Å")
 
@@ -66,13 +72,14 @@ print("Creating overlay plot...")
 fig, ax = plt.subplots(figsize=(12, 6), dpi=600)
 
 # Plot total charge density for both voltages
+ax.plot(z_1V, q_1V, label='1V', color='green', linewidth=1.5, alpha=0.8)
 ax.plot(z_2V, q_2V, label='2V', color='blue', linewidth=1.5, alpha=0.8)
 ax.plot(z_4V, q_4V, label='4V', color='red', linewidth=1.5, alpha=0.8)
 
 # Electrode position markers
-ax.axvline(x=z_min_angstrom, color='green', linestyle='--', linewidth=2, alpha=0.7, 
+ax.axvline(x=z_min_angstrom, color='black', linestyle='--', linewidth=2, alpha=0.7, 
            label=f'Positive Electrode ({z_min_angstrom:.1f} Å)')
-ax.axvline(x=z_max_angstrom, color='orange', linestyle='--', linewidth=2, alpha=0.7, 
+ax.axvline(x=z_max_angstrom, color='black', linestyle='--', linewidth=2, alpha=0.7, 
            label=f'Negative Electrode ({z_max_angstrom:.1f} Å)')
 
 # Axis labels and formatting
