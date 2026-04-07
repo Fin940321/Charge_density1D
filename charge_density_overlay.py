@@ -92,7 +92,7 @@ ax.axvline(x=z_max_angstrom, color='gray', linestyle='--', linewidth=2, alpha=0.
 # Axis labels and formatting
 ax.set_xlabel('Z Position (Å)', fontsize=11)
 ax.set_ylabel('Charge Density (C/nm³)', fontsize=11)
-ax.set_title('Charge Density of [BMIM][TFSI] at CNT Electrodes', fontsize=12, fontweight='bold')
+ax.set_title('Charge Density of [BMIM][TFSI] at 2CNT Electrodes', fontsize=12, fontweight='bold')
 
 # Set y-axis limits (adjusted for 4V larger amplitude)
 ax.set_ylim(-20, 30)
