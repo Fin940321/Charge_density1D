@@ -77,7 +77,7 @@ print("Creating overlay plot...")
 
 fig, ax = plt.subplots(figsize=(12, 6), dpi=600)
 
-# Plot total charge density for both voltages
+### Plot total charge density for all voltages
 ax.plot(z_1V, q_1V, label='1V', color='green', linewidth=1.5, alpha=0.8)
 ax.plot(z_2V, q_2V, label='2V', color='blue', linewidth=1.5, alpha=0.8)
 ax.plot(z_3V, q_3V, label='3V', color='orange', linewidth=1.5, alpha=0.8)
@@ -107,3 +107,36 @@ plt.tight_layout()
 # Save figure
 plt.savefig(OUTPUT_FILE, dpi=600, bbox_inches='tight')
 print(f"Saved: {OUTPUT_FILE}")
+
+### Plot total charge density at CNT/G surface for all voltages
+
+print("Creating surface zoom plot...")
+fig2, ax2 = plt.subplots(figsize=(10, 6), dpi=600)
+
+# Shift Z coordinates: set positive electrode to 0
+ax2.plot(z_1V - z_min_angstrom, q_1V, label='1V', color='green', linewidth=1.5, alpha=0.8)
+ax2.plot(z_2V - z_min_angstrom, q_2V, label='2V', color='blue', linewidth=1.5, alpha=0.8)
+ax2.plot(z_3V - z_min_angstrom, q_3V, label='3V', color='orange', linewidth=1.5, alpha=0.8)
+ax2.plot(z_4V - z_min_angstrom, q_4V, label='4V', color='red', linewidth=1.5, alpha=0.8)
+
+# Electrode surface marker
+ax2.axvline(x=0, color='black', linestyle='--', linewidth=2, alpha=0.7, label='Electrode Surface')
+
+# Set X-axis limit to 0-15 Å
+ax2.set_xlim(0, 15)
+ax2.set_ylim(-20, 30)
+
+# Axis labels and formatting
+ax2.set_xlabel('Distance from Positive Electrode (Å)', fontsize=11)
+ax2.set_ylabel('Charge Density (C/nm³)', fontsize=11)
+ax2.set_title('Charge Density Near Positive Electrode (0-15 Å)', fontsize=12, fontweight='bold')
+
+ax2.grid(True, linestyle='--', alpha=0.5)
+ax2.legend(fontsize=10, loc='best')
+
+plt.tight_layout()
+
+# Save the new figure
+OUTPUT_FILE2 = "charge_density_at_surface.png"
+plt.savefig(OUTPUT_FILE2, dpi=600, bbox_inches='tight')
+print(f"Saved: {OUTPUT_FILE2}")
