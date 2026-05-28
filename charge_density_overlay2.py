@@ -122,14 +122,14 @@ ax2.plot(z_4V - z_min_angstrom, q_4V, label='4V', color='red', linewidth=1.5, al
 # Electrode surface marker
 ax2.axvline(x=0, color='black', linestyle='--', linewidth=2, alpha=0.7, label='Electrode Surface')
 
-# Set X-axis limit to 0-15 Å
-ax2.set_xlim(0, 15)
+# Set X-axis limit to 0-14 Å
+ax2.set_xlim(0, 14)
 ax2.set_ylim(-20, 30)
 
 # Axis labels and formatting
 ax2.set_xlabel('Distance from Positive Electrode (Å)', fontsize=11)
 ax2.set_ylabel('Charge Density (C/nm³)', fontsize=11)
-ax2.set_title('Charge Density Near Positive Electrode (0-15 Å)', fontsize=12, fontweight='bold')
+ax2.set_title('Charge Density Near Positive Electrode (0-14 Å)', fontsize=12, fontweight='bold')
 
 ax2.grid(True, linestyle='--', alpha=0.5)
 ax2.legend(fontsize=10, loc='best')
