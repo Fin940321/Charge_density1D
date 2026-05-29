@@ -120,7 +120,7 @@ ax2.plot(z_3V - z_min_angstrom, q_3V, label='3V', color='orange', linewidth=1.5,
 ax2.plot(z_4V - z_min_angstrom, q_4V, label='4V', color='red', linewidth=1.5, alpha=0.8)
 
 # Electrode surface marker
-ax2.axvline(x=0, color='black', linestyle='--', linewidth=2, alpha=0.7, label='Electrode Surface')
+ax2.axvline(x=0, color='black', linestyle='--', linewidth=2, alpha=0.7, label='Positive Electrode')
 
 # Set X-axis limit to 0-14 Å
 ax2.set_xlim(0, 14)
