@@ -95,7 +95,7 @@ ax.set_ylabel('Charge Density (C/nm³)', fontsize=11)
 ax.set_title('Charge Density of [BMIM][TFSI] at 2CNT Electrodes', fontsize=12, fontweight='bold')
 
 # Set y-axis limits (adjusted for 4V larger amplitude)
-ax.set_ylim(-20, 30)
+ax.set_ylim(-20, 20)
 
 # Grid and legend
 ax.grid(True, linestyle='--', alpha=0.5)
@@ -124,7 +124,7 @@ ax2.axvline(x=0, color='black', linestyle='--', linewidth=2, alpha=0.7, label='P
 
 # Set X-axis limit to 0-14 Å
 ax2.set_xlim(0, 14)
-ax2.set_ylim(-20, 30)
+ax2.set_ylim(-20, 20)
 
 # Axis labels and formatting
 ax2.set_xlabel('Distance from Positive Electrode (Å)', fontsize=11)
@@ -137,6 +137,6 @@ ax2.legend(fontsize=10, loc='best')
 plt.tight_layout()
 
 # Save the new figure
-OUTPUT_FILE2 = "charge_density_at_surface.png"
+OUTPUT_FILE2 = "charge_density_at_surface2.png"
 plt.savefig(OUTPUT_FILE2, dpi=600, bbox_inches='tight')
 print(f"Saved: {OUTPUT_FILE2}")
