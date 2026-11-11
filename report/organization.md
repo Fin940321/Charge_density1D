@@ -35,3 +35,7 @@ MDAnalysis 讀取此 PDB 時提示部分原子的 `EP` 元素欄位無法辨識�
 ## 2026-10-29 外層整理更新
 
 目前路徑為 `/home/atuo/Academic_Workspace/Research/Code/Charge_density1D/`。先前紀錄中的來源路徑保留作歷史對照。README 的目前執行範例已更新；共通手動事項見工作區根目錄 MANUAL_ADJUSTMENTS.md。
+
+## 後續修正：電荷密度單位標示
+
+依使用者確認，將 V11 四個終端統計訊息及兩個 Y 軸標籤由 C/nm³ 改為 e/nm³。OpenMM `getParticleParameters()` 回傳電荷以基本電荷 e 為單位，除以 nm³ 體積後的數值即為 e/nm³。此次只改六處單位文字，計算、取樣、資料檔與 Poisson 換算均保持原樣，沒有重跑正式軌跡或重畫既有圖片。

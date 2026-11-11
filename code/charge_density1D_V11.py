@@ -315,10 +315,10 @@ z_centers = (bins[:-1] + bins[1:]) / 2
 z_centers_angstrom = (z_centers + z_min_nm) * 10.0  # Convert nm to Å and shift to actual position
 
 print("=== Charge Density Statistics ===")
-print(f"  Cation:  [{density_cat.min():.6e}, {density_cat.max():.6e}] C/nm³")
-print(f"  Anion:   [{density_an.min():.6e}, {density_an.max():.6e}] C/nm³")
-print(f"  Solvent: [{density_solv.min():.6e}, {density_solv.max():.6e}] C/nm³")
-print(f"  Total:   [{density_total.min():.6e}, {density_total.max():.6e}] C/nm³")
+print(f"  Cation:  [{density_cat.min():.6e}, {density_cat.max():.6e}] e/nm³")
+print(f"  Anion:   [{density_an.min():.6e}, {density_an.max():.6e}] e/nm³")
+print(f"  Solvent: [{density_solv.min():.6e}, {density_solv.max():.6e}] e/nm³")
+print(f"  Total:   [{density_total.min():.6e}, {density_total.max():.6e}] e/nm³")
 print()
 
 
@@ -359,7 +359,7 @@ if len(solvent_idx) > 0 and np.any(density_solv != 0):
 ax1.axvline(x=z_min_angstrom, color='green', linestyle='--', linewidth=2, alpha=0.7, label=f'Anode ({z_min_angstrom:.1f} Å)')
 ax1.axvline(x=z_max_angstrom, color='orange', linestyle='--', linewidth=2, alpha=0.7, label=f'Cathode ({z_max_angstrom:.1f} Å)')
 ax1.set_xlabel('Z Position (Å)', fontsize=11)
-ax1.set_ylabel('Charge Density (C/nm³)', fontsize=11)
+ax1.set_ylabel('Charge Density (e/nm³)', fontsize=11)
 ax1.set_ylim(-15, 25)
 ax1.set_title('Individual Species Charge Density', fontsize=12, fontweight='bold')
 ax1.legend(fontsize=10)
@@ -372,7 +372,7 @@ ax2.axhline(y=0, color='gray', linestyle=':', alpha=0.5)
 ax2.axvline(x=z_min_angstrom, color='green', linestyle='--', linewidth=2, alpha=0.7, label=f'Anode ({z_min_angstrom:.1f} Å)')
 ax2.axvline(x=z_max_angstrom, color='orange', linestyle='--', linewidth=2, alpha=0.7, label=f'Cathode ({z_max_angstrom:.1f} Å)')
 ax2.set_xlabel('Z Position (Å)', fontsize=11)
-ax2.set_ylabel('Charge Density (C/nm³)', fontsize=11)
+ax2.set_ylabel('Charge Density (e/nm³)', fontsize=11)
 ax2.set_ylim(-15, 25)
 ax2.set_title('Total Charge Density', fontsize=12, fontweight='bold')
 ax2.legend(fontsize=10)
